@@ -1,0 +1,41 @@
+<h1>{{title}}</h1>
+
+<h1 style="text-align: center;"> Productos</h1>
+    <p >
+        <div class="container">
+            <button class="btn btn-primary btn-lg" onclick="createFunction()">Crear Producto</button>
+            <h2 id="title">Lista de Productos</h2>
+            {{#if productos }}
+                <table class="table table-hover table-striped ">
+                    <thead class="table-dark">
+                        <tr align="center">
+                            <th>Nombre</th>
+                            <th>Código</th>
+                            <th>Stock</th>
+                            <th>Precio</th>
+                            <th>Proovedor</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{# each productos }}
+                        <tr align="center">
+                            <td ><a href="/productos/show/{{ _id }}">{{ nombre }}</a></td>
+                            <td>{{ codigo }}</td>
+                            <td>{{ stock }}</td>
+                            <td>{{ precio }}</td>
+                            <td>{{ proovedor }}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{~^~}}
+                <div>Productos no encontrados.</div>
+            {{/if}}
+        </div>
+    </p>
+<script>
+    function createFunction(){
+        location.href="/productos/create";
+    }
+</script>
+

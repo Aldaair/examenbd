@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Detalle de Producto</title>
+    </head>
+    <body>
+        <br>
+        <div class="container">
+            <button class="btn btn-primary btn-lg" onclick="listFunction()">Lista de Productos</button>
+            <br>
+            <br>
+            <h1>Detalle de Producto</h1>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td class="table-light"><strong>Nombre</strong></td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ producto.nombre }}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-light"><strong>Código</strong> </td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ producto.codigo }}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-light"><strong>Stock</strong> </td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ producto.stock }}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-light"><strong>Precio (soles)</strong> </td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ producto.precio }}</td>
+                    </tr>
+                    <tr>
+                        <td class="table-light"><strong>Proovedor</strong> </td>
+                        <td></td>
+                        <td></td>
+                        <td>{{ producto.proovedor }}</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+            {{!-- <h3><a href="/productos/edit/{{ producto._id }}">EDIT</a></h3> --}}
+            <button class="btn btn-success btn-lg" onclick="editFunction()">Editar Producto</button>
+            <form action="/productos/delete/{{ producto._id }}" method="post">
+            <br>
+            <button class="btn btn-danger btn-lg" type="submit">Eliminar Producto</button>
+            </form>
+        </div>
+    </body>
+    <script>
+        function editFunction(){
+            location.href="/productos/edit/{{ producto._id }}";
+        }
+        function listFunction(){
+            location.href="/productos";
+        }
+    </script>
+</html>

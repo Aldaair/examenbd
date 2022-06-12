@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Editar Producto</title>
+    </head>
+    <body>
+        <div class="container">
+            <br>
+            <button class="btn btn-primary btn-lg" onclick="listFunction()">Lista de Productos</button>
+            <h1>Editar Producto</h1>
+            <form action="/productos/update/{{ producto._id }}" method="post">
+                <table class="table">
+                    <tbody>
+                        <button class="btn btn-success btn-lg" type="submit">Actualizar</button>
+                        <br>
+                        <br>
+                        <tr>
+                            <td class="table-light">Nombre</td>
+                            <td><input class="form-control" type="text" name="nombre" value="{{ producto.nombre }}" /></td>
+                        </tr>
+                        <tr>
+                            <td class="table-light">codigo</td>
+                            <td><input class="form-control" type="text" name="codigo" value="{{ producto.codigo }}" /></td>
+                        </tr>
+                        <tr>
+                            <td class="table-light">stock</td>
+                            <td><input class="form-control" type="text" name="stock" value="{{ producto.stock }}" /></td>
+                        </tr>
+                        <tr>
+                            <td class="table-light">Precio</td>
+                            <td><input class="form-control" type="text" name="precio" value="{{ producto.precio }}" /></td>
+                        </tr>
+                        <tr>
+                            <td class="table-light">Proovedor</td>
+                            <td><input class="form-control" type="text" name="proovedor" value="{{ producto.proovedor }}" /></td>
+                        </tr>
+                        
+                        
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </body>
+    <script>
+        function listFunction(){
+            location.href="/productos";
+        }
+    </script>
+</html>
